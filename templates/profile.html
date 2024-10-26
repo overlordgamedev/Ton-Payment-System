@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    <p>Имя пользователя: {{ username }}</p>
+    <p>UUID: {{ uuid }}</p>
+    <p>Кошелек: {{ wallet_address }}</p>
+    <p>Баланс: {{ balance }} TON</p>
+    <form action="{{ url_for('transfer') }}" method="POST">
+        <label for="amount">Сумма перевода (TON):</label>
+        <input type="number" name="amount" step="0.0001" required>
+
+        <label for="destination_address">Адрес получателя:</label>
+        <input type="text" name="destination_address" required>
+
+        <button type="submit">Отправить</button>
+    </form>
+    <form action="{{ url_for('logout') }}" method="POST">
+        <button type="submit">Выйти</button>
+    </form>
+</body>
+</html>
